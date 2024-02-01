@@ -10,7 +10,9 @@ public class CollectibleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //unityEvent.AddListener(GameObject.FindGameObjectsWithTag("UIController").GetComponent<UIControllerScript>().Increment);
+        unityEvent.AddListener(GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().PickUpSFX);
+        unityEvent.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>().IncrementScore);
+        unityEvent.AddListener(GameObject.FindGameObjectWithTag("UIController").GetComponent<UIControllerScript>().ChangeText);
     }
 
     // Update is called once per frame

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameControllerScript : MonoBehaviour
 {
+
+
     [SerializeField] int points;
     public int score;
 

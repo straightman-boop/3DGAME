@@ -8,6 +8,9 @@ public class UIControllerScript : MonoBehaviour
     [SerializeField] GameControllerScript gameControllerScript;
     public TextMeshProUGUI value;
 
+    public GameObject settings;
+    bool isDisabled = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,11 @@ public class UIControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isDisabled = !isDisabled;
+            settings.SetActive(isDisabled);
+        }
     }
 
     public void ChangeText()

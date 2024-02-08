@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControllerScript : MonoBehaviour
 {
-
 
     [SerializeField] int points;
     public int score;
@@ -19,7 +19,10 @@ public class GameControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(score);
+        if(points == 20)
+        {
+            ChangeScene();
+        }
     }
 
     public void IncrementScore()
@@ -28,5 +31,9 @@ public class GameControllerScript : MonoBehaviour
         score = points;
     }
 
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 }

@@ -26,10 +26,13 @@ public class SettingsScript : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerPrefs.SetFloat("BG", 1f);
-        PlayerPrefs.SetFloat("SFX", 1f);
+        PlayerPrefs.SetFloat("BG", BG.value);
+        PlayerPrefs.SetFloat("SFX", SFX.value);
         PlayerPrefs.SetFloat("etc", 1f);
-        PlayerPrefs.SetFloat("Master", 1f);
+        PlayerPrefs.SetFloat("Master", Master.value);
+
+
+        //Debug.Log("Settings Saved");
 
     }
 
@@ -46,7 +49,6 @@ public class SettingsScript : MonoBehaviour
     public void Slider_BG()
     {
         mixer.SetFloat("BG", Mathf.Lerp(-80f, 0f, BG.value));
-
     }
 
 

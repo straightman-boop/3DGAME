@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Timeline;
 
 public class AudioManagerScript : MonoBehaviour
 {
@@ -11,6 +12,23 @@ public class AudioManagerScript : MonoBehaviour
     [SerializeField] private AudioSource BG;
     [SerializeField] private AudioSource SFX;
     [SerializeField] private AudioMixer mixer;
+
+    private void Start()
+    {
+        //mixer.SetFloat("BG", Mathf.Log10(PlayerPrefs.GetFloat("BG", 1f)) * 20);
+        //mixer.SetFloat("SFX", Mathf.Log10(PlayerPrefs.GetFloat("SFX", 1f)) * 20);
+        //mixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat("Master", 1f)) * 20);
+
+        float bgVolume = PlayerPrefs.GetFloat("BG", 1f);
+        float sfxVolume = PlayerPrefs.GetFloat("SFX", 1f);
+        float master = PlayerPrefs.GetFloat("Master", 1f);
+
+        mixer.SetFloat("BG", Mathf.Log10(bgVolume) * 20);
+        mixer.SetFloat("SFX", Mathf.Log10(sfxVolume) * 20);
+        mixer.SetFloat("Master", Mathf.Log10(master) * 20);
+
+
+    }
 
     private void Awake()
     {
@@ -25,23 +43,34 @@ public class AudioManagerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        LoadAudio();
+        //LoadAudio();
     }
+
+    private void Update()
+    {
+        Debug.Log("BG: " + PlayerPrefs.GetFloat("BG"));
+        Debug.Log("SFX: " + PlayerPrefs.GetFloat("SFX"));
+        Debug.Log("Master: " + PlayerPrefs.GetFloat("Master"));
+
+    }
+
+    //private void LoadAudio()
+    //{
+    //    float bgVolume = PlayerPrefs.GetFloat("BG", 1f);
+    //    float sfxVolume = PlayerPrefs.GetFloat("SFX", 1f);
+    //    float master = PlayerPrefs.GetFloat("Master", 1f);
+
+    //    mixer.SetFloat("BG", Mathf.Log10(bgVolume) * 20);
+    //    mixer.SetFloat("SFX", Mathf.Log10(sfxVolume) * 20);
+    //    mixer.SetFloat("Master", Mathf.Log10(master) * 20);
+
+    //    Debug.Log("audioSettingsloaded");
+
+    //}
 
     public void PickUpSFX()
     {
         SFX.Play();
     }
 
-    private void LoadAudio()
-    {
-        float bgVolume = PlayerPrefs.GetFloat("BG", 1f);
-        float sfxVolume = PlayerPrefs.GetFloat("SFX", 1f);
-        float master = PlayerPrefs.GetFloat("Master", 1f);
-
-        mixer.SetFloat("BG", Mathf.Log10(bgVolume) * 20);
-        mixer.SetFloat("SFX", Mathf.Log10(sfxVolume) * 20);
-        mixer.SetFloat("Master", Mathf.Log10(master) * 20);
-
-    }
 }

@@ -11,6 +11,11 @@ public class UIControllerScript : MonoBehaviour
     public GameObject settings;
     bool isDisabled = false;
 
+    private void Awake()
+    {
+        value.text = gameControllerScript.score.ToString();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

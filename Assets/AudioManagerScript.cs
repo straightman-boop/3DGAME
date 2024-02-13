@@ -48,9 +48,11 @@ public class AudioManagerScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("BG: " + PlayerPrefs.GetFloat("BG"));
-        Debug.Log("SFX: " + PlayerPrefs.GetFloat("SFX"));
-        Debug.Log("Master: " + PlayerPrefs.GetFloat("Master"));
+        //Debug.Log("BG: " + PlayerPrefs.GetFloat("BG"));
+        //Debug.Log("SFX: " + PlayerPrefs.GetFloat("SFX"));
+        //Debug.Log("Master: " + PlayerPrefs.GetFloat("Master"));
+
+        Debug.Log(PlayerPrefs.GetInt("score", 0));
 
     }
 

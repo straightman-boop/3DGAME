@@ -17,13 +17,13 @@ public class GameControllerScript : MonoBehaviour
 
         if (scene.buildIndex == 0)
         {
-            Debug.Log("RESET SCORE");
+            //Debug.Log("RESET SCORE");
             PlayerPrefs.SetInt("score", 0);
         }
 
         else if(scene.buildIndex > 0)
         {
-            Debug.Log("RETREIVED SCORE");
+            //Debug.Log("RETREIVED SCORE");
             score = PlayerPrefs.GetInt("score", 0);
             points = score;
         }

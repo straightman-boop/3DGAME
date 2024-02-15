@@ -52,6 +52,6 @@ public class SettingsScript : MonoBehaviour
     }
 
 
-
+    /*Fish Eggs; Fish; Fish Feed; Cleaner(Pool Net + Empty Container); Money; Repair Kits;*/
 
 }

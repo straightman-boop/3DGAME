@@ -15,13 +15,13 @@ public class GameControllerScript : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
 
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 1)
         {
             //Debug.Log("RESET SCORE");
             PlayerPrefs.SetInt("score", 0);
         }
 
-        else if(scene.buildIndex > 0)
+        else if(scene.buildIndex > 1)
         {
             //Debug.Log("RETREIVED SCORE");
             score = PlayerPrefs.GetInt("score", 0);
@@ -39,7 +39,7 @@ public class GameControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0 && points == 7)
+        if(SceneManager.GetActiveScene().buildIndex == 1 && points == 7)
         {
             ChangeScene();
         }
@@ -55,7 +55,7 @@ public class GameControllerScript : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
 }

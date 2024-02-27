@@ -6,6 +6,6 @@ public class UI_Settings : MonoBehaviour
 {
     public void CloseSettings()
     {
-        gameObject.SetActive(false);
+        MenuManager.OpenMenu(Menu.MAIN_MENU, gameObject);
     }
 }

@@ -20,6 +20,7 @@ public class UIControllerScript : MonoBehaviour
     void Start()
     {
         gameControllerScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+        MenuManager.Init();
     }
 
     // Update is called once per frame
@@ -29,6 +30,17 @@ public class UIControllerScript : MonoBehaviour
         {
             isDisabled = !isDisabled;
             settings.SetActive(isDisabled);
+
+            if (isDisabled == true)
+            {            
+                MenuManager.mainMenu.SetActive(true);
+            }
+
+            else
+            {
+                MenuManager.mainMenu.SetActive(false);
+                MenuManager.settings.SetActive(false);
+            }
         }
     }
 

@@ -27,9 +27,11 @@ public static class MenuManager
         {
             case Menu.MAIN_MENU:
                 mainMenu.SetActive(true);
+                //mainMenu.SetActive(false);
                 break;
 
             case Menu.SETTINGS:
+                //settings.SetActive(true);
                 settings.SetActive(true);
                 break;
         }

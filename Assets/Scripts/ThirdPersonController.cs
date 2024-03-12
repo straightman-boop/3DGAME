@@ -136,7 +136,7 @@ namespace StarterAssets
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
-            _hasAnimator = TryGetComponent(out _animator);
+            _hasAnimator = TryGetComponent(out _animator); //animator!
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -159,6 +159,18 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            //Right click to raise Torch!
+
+            if (Input.GetMouseButton(1))
+            {
+                _animator.SetBool("RaiseTorch", true);
+            }
+
+            if(Input.GetMouseButtonUp(1))
+            {
+                _animator.SetBool("RaiseTorch", false);
+            }
         }
 
         private void LateUpdate()

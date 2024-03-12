@@ -135,7 +135,7 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator); //animator!
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -146,10 +146,10 @@ namespace StarterAssets
 #endif
 
             AssignAnimationIDs();
-
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+           
         }
 
         private void Update()
@@ -165,11 +165,13 @@ namespace StarterAssets
             if (Input.GetMouseButton(1))
             {
                 _animator.SetBool("RaiseTorch", true);
+
             }
 
-            if(Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonUp(1))
             {
                 _animator.SetBool("RaiseTorch", false);
+
             }
         }
 

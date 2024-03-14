@@ -176,14 +176,9 @@ namespace StarterAssets
 
             if (Input.GetMouseButtonDown(0))
             {
-                _animator.SetBool("Attacking", true);
+                _animator.SetTrigger("Attacking");
             }
             
-            if (Input.GetMouseButtonUp(0))
-            {
-                _animator.SetBool("Attacking", false);
-            }
-
 
         }
 

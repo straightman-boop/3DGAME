@@ -14,6 +14,7 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -122,6 +123,9 @@ namespace StarterAssets
             }
         }
 
+        [HideInInspector]
+        [SerializeField] bool _enabled = false;
+
 
         private void Awake()
         {
@@ -178,7 +182,13 @@ namespace StarterAssets
             {
                 _animator.SetTrigger("Attacking");
             }
-            
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                _animator.SetBool("Crouch", !_enabled);
+                _enabled = !_enabled;
+            }
+
 
         }
 

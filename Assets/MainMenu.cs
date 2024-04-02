@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    AudioManagerScript audioManagerScript;
+    private void Start()
+    {
+        audioManagerScript = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>();
+    }
+
     private void Awake()
     {
         MenuManager.Init();
@@ -28,5 +35,10 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit >:(");
+    }
+
+    public void PressButtonSFX()
+    {
+        audioManagerScript.UI_SFX.Play();
     }
 }

@@ -28,7 +28,7 @@ public class SettingsScript : MonoBehaviour
     {
         PlayerPrefs.SetFloat("BG", BG.value);
         PlayerPrefs.SetFloat("SFX", SFX.value);
-        PlayerPrefs.SetFloat("etc", 1f);
+        PlayerPrefs.SetFloat("etc", Etc.value);
         PlayerPrefs.SetFloat("Master", Master.value);
 
 
@@ -51,6 +51,10 @@ public class SettingsScript : MonoBehaviour
         mixer.SetFloat("BG", Mathf.Lerp(-80f, 0f, BG.value));
     }
 
+    public void Slider_etc()
+    {
+        mixer.SetFloat("UI_SFX", Mathf.Lerp(-80f, 0f, Etc.value));
+    }
 
     /*Fish Eggs; Fish; Fish Feed; Cleaner(Pool Net + Empty Container); Money; Repair Kits;*/
 

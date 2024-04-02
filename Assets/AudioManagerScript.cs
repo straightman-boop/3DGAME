@@ -12,6 +12,7 @@ public class AudioManagerScript : MonoBehaviour
     [SerializeField] private AudioSource BG;
     [SerializeField] private AudioSource SFX;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] public AudioSource UI_SFX;
 
     private void Start()
     {
@@ -22,12 +23,14 @@ public class AudioManagerScript : MonoBehaviour
         float bgVolume = PlayerPrefs.GetFloat("BG", 1f);
         float sfxVolume = PlayerPrefs.GetFloat("SFX", 1f);
         float master = PlayerPrefs.GetFloat("Master", 1f);
+        float uisfx = PlayerPrefs.GetFloat("etc", 1f);
 
         mixer.SetFloat("BG", Mathf.Lerp(-80f, 0f, bgVolume));
         mixer.SetFloat("SFX", Mathf.Lerp(-80f, 0f, sfxVolume));
         mixer.SetFloat("Master", Mathf.Lerp(-80f, 0f, master));
+        mixer.SetFloat("etc", Mathf.Lerp(-80f, 0f, uisfx));
 
-    } 
+    }
 
     private void Awake()
     {

@@ -32,14 +32,16 @@ public class UIControllerScript : MonoBehaviour
             settings.SetActive(isDisabled);
 
             if (isDisabled == true)
-            {            
-                MenuManager.mainMenu.SetActive(true);
+            {
+                MenuManager.mainMenu.SetActive(true);        
+                Time.timeScale = 0;
             }
 
             else
             {
                 MenuManager.mainMenu.SetActive(false);
                 MenuManager.settings.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }

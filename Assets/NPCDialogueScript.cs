@@ -13,6 +13,8 @@ public class NPCDialogueScript : MonoBehaviour
 
     int pageTurn = 1;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +29,13 @@ public class NPCDialogueScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        animator.SetBool("Player", true);
         NPCDialogueSystem.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
+        animator.SetBool("Player", false);
         NPCDialogueSystem.SetActive(false);
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameControllerScript : MonoBehaviour
 {
-
     [SerializeField] int points;
     public int score;
     

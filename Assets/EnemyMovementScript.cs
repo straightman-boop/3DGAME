@@ -21,6 +21,7 @@ public class EnemyMovementScript : MonoBehaviour
         localPosition = localPosition.normalized;
         transform.Translate(localPosition.x * Time.deltaTime * speed, localPosition.y * Time.deltaTime * speed, localPosition.z * Time.deltaTime * speed);
 
+        transform.LookAt(player.transform.position);
 
     }
 }

@@ -38,9 +38,16 @@ public class GameControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(points);
+
         if (SceneManager.GetActiveScene().buildIndex == 1 && points == 7)
         {
             ChangeScene();
+        }
+
+        else if (points == 15)
+        {
+            YouWin();           
         }
     }
 
@@ -55,5 +62,10 @@ public class GameControllerScript : MonoBehaviour
     public void ChangeScene()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void YouWin()
+    {
+        SceneManager.LoadScene(3);
     }
 }

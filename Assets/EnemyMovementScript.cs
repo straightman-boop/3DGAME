@@ -30,14 +30,13 @@ public class EnemyMovementScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(3);
+            YouLost();
         }
     }
 
     public void YouLost()
     {
         SceneManager.LoadScene(3);
-        EndStateScript.endStateScript.endState = false;
     }
 
 }

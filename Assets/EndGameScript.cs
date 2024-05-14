@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class EndGameScript : MonoBehaviour
 {
     public static EndGameScript endGameScript;
 
-    public bool win;
+    int totalScore;
 
     private void Awake()
     {
@@ -29,24 +30,32 @@ public class EndGameScript : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
 
+    private void Start()
+    {
+        totalScore = PlayerPrefs.GetInt("score", 0);
+    }
+
     private void Update()
     {
+        //win = EndStateScript.endStateScript.endState;
+
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             Destroy(gameObject);
         }
 
-        if (win == true)
+        if (totalScore == 15)
         {
             winScreen.SetActive(true);
+            loseScreen.SetActive(false);
         }
 
-        else if (win == false)
+        else if (totalScore < 15)
         {
             loseScreen.SetActive(true);
+            winScreen.SetActive(false);
         }
-
-        Debug.Log(EndStateScript.endStateScript.endState);    
+   
     }
 
     public void ReturnToMainMenu()

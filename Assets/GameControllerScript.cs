@@ -8,7 +8,7 @@ public class GameControllerScript : MonoBehaviour
 {
     [SerializeField] int points;
     public int score;
-    
+
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class GameControllerScript : MonoBehaviour
             PlayerPrefs.SetInt("score", 0);
         }
 
-        else if(scene.buildIndex > 1)
+        else if (scene.buildIndex > 1)
         {
             //Debug.Log("RETREIVED SCORE");
             score = PlayerPrefs.GetInt("score", 0);
@@ -38,7 +38,7 @@ public class GameControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1 && points == 7)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && points == 7)
         {
             ChangeScene();
         }
@@ -56,5 +56,4 @@ public class GameControllerScript : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
-
 }

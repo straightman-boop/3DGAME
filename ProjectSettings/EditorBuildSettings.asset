@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SkibidiLand.unity
     guid: a76849dd21aa8f8468d04974c35ef9e6
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: e3b669303fec207479ef748e415a371b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

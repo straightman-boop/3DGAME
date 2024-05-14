@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovementScript : MonoBehaviour
 {
@@ -24,4 +25,19 @@ public class EnemyMovementScript : MonoBehaviour
         transform.LookAt(player.transform.position);
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
+
+    public void YouLost()
+    {
+        SceneManager.LoadScene(3);
+        EndStateScript.endStateScript.endState = false;
+    }
+
 }
